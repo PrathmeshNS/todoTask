@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="login-card">
+        <p style="color: red;">{{this.msg}}</p>
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+            <div class="mb-3 w-50 container">
+                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" placeholder="Enter Your Email" [ngClass]="{'is-invalid':f.submitted && email.errors}" autocomplete="on"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+                    <div *ngIf="email.errors['required']">Email is required</div>
+                    <div *ngIf="email.errors['pattern']">Email Must Be Valid</div>
+
+                </div>
+            </div>
+            <div class="mb-3 w-50 container">
+                <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel" placeholder="Enter Your Password" [ngClass]="{'is-invalid':f.submitted && password.errors}" autocomplete="on" maxlength="16"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}" required>
+                <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['pattern']"> Must contain at least one number and one uppercase and lowercase letter, and between 8 to 16 characters </div>
+
+                </div>
+            </div>
+            <div class="container text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div>
+                <span class="register" >Don't Have Account <a (click)="gotoRegister()">Register Here</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<router-outlet></router-outlet>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <div class="addTask">
+        <input type="text" class="ms-2 mt-5"  placeholder="Enter a Task" [(ngModel)]="newTask.taskName" size="20px" required>
+        <br><br>
+        <button class="myBtn" (click)="addTask()">Add Task</button>
+    </div> -->
+    <div class="addTask">
+        <p *ngIf="userName!=null then greateUser; else null"></p>
+        <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && addTask()">
+            <div class="mb-3 w-50 container">
+                <input type="text" class="form-control" name="text" [(ngModel)]="newTask.taskName" #text="ngModel" placeholder="Enter Your Task" [ngClass]="{'is-invalid':f.submitted && text.errors}" autocomplete="on" required>
+                <div *ngIf="f.submitted && text.errors" class="invalid-feedback">
+                    <div *ngIf="text.errors['required']">Task is required</div>
+                </div>
+                <p style="color: rgb(83, 255, 181); font-weight: 800; text-align: center;">{{msg}}</p>
+            </div>
+            <div class="container text-center">
+                <button type="submit" class="myBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <app-show-task></app-show-task>
+   
+
+<ng-template #greateUser>
+    <pre class="greateUser">
+        Welcome {{userName}},
+                   Add What are the Your Secret Things.
+    </pre>
+</ng-template>
+
+</body>
+
+</html>

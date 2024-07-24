@@ -1,0 +1,30 @@
+table{
+  /* border: 1px solid black; */
+  margin: 1em -1.5rem;
+}
+
+body{
+    background:transparent;
+    margin: 0  0 0 3rem;
+}
+
+th{
+    padding: 2px;
+    /* text-align: center; */
+}
+
+td{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+button:nth-child(odd){
+    background: transparent;
+    margin: 5px 10px;
+}
+button{
+    background: transparent;
+    margin: 5px 10px;
+}

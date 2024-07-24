@@ -1,0 +1,20 @@
+<body>
+    <div class="showTask">
+        <table class="table table-striped">
+            <tr>
+                <th>Task Name</th>
+                <th colspan="5">Action</th>
+            </tr>
+            <tr *ngFor="let i of tasks">
+                <td>{{i.taskName}}</td>
+                <td>
+                    <button class="btn btn-warning me-3" [routerLink]="['/edit', i.taskId]">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteTask(i.taskId)">Delete </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.editTask{
+    display: grid;
+    place-items: center;
+    margin: 5rem 0 0 0;
+    justify-items: center;
+}
+
+input{
+    width: 18rem;
+    height: 3rem;
+    color: rgb(0, 0, 0);
+    font-weight: 200 !important;
+    background: transparent;
+    border: 1px dashed white;
+    text-align: center;
+}
+
+button{
+    color: rgb(191, 191, 191);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(20deg, rgb(62, 100, 118) , rgb(184, 134, 41));
+}
