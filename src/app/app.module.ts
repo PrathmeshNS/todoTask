@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { ShowTaskComponent } from './show-task/show-task.component';
-import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -19,7 +18,6 @@ import { RegisterComponent } from './register/register.component';
     TaskAppComponent,
     EditTaskComponent,
     ShowTaskComponent,
-    HeaderComponent,
     LoginComponent,
     RegisterComponent
   ],
