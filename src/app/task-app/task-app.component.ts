@@ -21,15 +21,11 @@ export class TaskAppComponent {
   }
 
   constructor(private taskService: TaskService, private router: Router, private loginService: LoginService) {
-    
-   console.log( loginService.myUser)
   }
 
   async addTask() {
-    console.log("From Main App Task Adding function")
     if (this.newTask.taskName.trim().valueOf() == "") {
     } else {
-      this.msg = "Task Added Successfully"
       this.taskService.addTask(this.newTask).subscribe(
         {
           next: (data) => {
@@ -37,6 +33,7 @@ export class TaskAppComponent {
           },
           error: (err) => {
             console.log("Im in error ")
+           this.msg =  err.error.text
           }
         }
       )

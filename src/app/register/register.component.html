@@ -10,6 +10,7 @@
 <body>
     <div class="login-card">
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+            <p>{{msg}}</p>
             <div class="mb-3 w-50 container">
                 <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" placeholder="Enter Your Name" [ngClass]="{'is-invalid':f.submitted && name.errors}" autocomplete="on"  required>
                 <div *ngIf="f.submitted && name.errors" class="invalid-feedback">
@@ -21,7 +22,6 @@
                 <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
                     <div *ngIf="email.errors['required']">Email is required</div>
                     <div *ngIf="email.errors['pattern']">Email Must Be Valid </div>
-
                 </div>
             </div>
             <div class="mb-3 w-50 container">

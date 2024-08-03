@@ -21,7 +21,6 @@ export class EditTaskComponent {
     this.route.paramMap.subscribe((param) => {
       var id = Number(param.get('id'));
       this.getTask(id);
-      console.log(id)
     });
   }
 
@@ -33,10 +32,8 @@ export class EditTaskComponent {
   updateTask(): void {
     this.taskService.updateTask(this.editTask).subscribe({
       next: (value) => {
-        console.log(value)
       },
       error: (error) => {
-        console.log(error.toString())
         this.router.navigate(['/addTask'])
       }
     })

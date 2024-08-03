@@ -13,34 +13,35 @@ export class LoginComponent {
 
   tasks: Task[] = []
 
-   msg = "";
+  msg = ""
   form: User = {
     id: 0,
     name: "",
     email: '',
     password: '',
-   
+
   }
   constructor(private router: Router, private loginService: LoginService) {
   }
 
   onSubmit() {
-    this.loginService.checkUser(this.form).subscribe( {
-     next:(value)=>{
-        if (value != null) { 
+    this.loginService.checkUser(this.form).subscribe({
+      next: (value) => {
+        if (value != null) {
           this.loginService.myUser = this.form;
-          // console.log(this.loginService.myUser)
           this.loginService.myUser.id = value.id
           this.loginService.myUser.name = value.name
           this.form = value;
-          // console.log(this.loginService.myUser)
           this.router.navigate(['/addTask']);
         }
-        else{}
-     },
-     error(err) {
-         console.log(err);
-     },
+        else {
+          this.msg = "User not found"
+        }
+      },
+      error: (err) => {
+        console.log(err);
+        //  this.msg = err.error.text
+      },
     });
   }
 

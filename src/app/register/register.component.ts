@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { User } from '../User';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +10,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class RegisterComponent {
 
+  msg= ""
 
   form: User = {
     id: 0,
@@ -20,14 +20,15 @@ export class RegisterComponent {
   }
   constructor(private router: Router, private loginService: LoginService) {
   }
-
+  
   onSubmit() {
     this.loginService.addUser(this.form).subscribe({
       next:(value)=> {
         this.router.navigate(['/login'])
       },
       error: (err) => {
-        this.router.navigate(['/login'])
+        // this.router.navigate(['/login'])
+        this.msg = err.error.text
       },
     })
   }
