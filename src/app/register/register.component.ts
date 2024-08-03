@@ -10,7 +10,7 @@ import { LoginService } from '../login.service';
 })
 export class RegisterComponent {
 
-  msg= ""
+  msg = ""
 
   form: User = {
     id: 0,
@@ -20,20 +20,28 @@ export class RegisterComponent {
   }
   constructor(private router: Router, private loginService: LoginService) {
   }
-  
+
   onSubmit() {
     this.loginService.addUser(this.form).subscribe({
-      next:(value)=> {
+      next: (value) => {
         this.router.navigate(['/login'])
       },
       error: (err) => {
-        // this.router.navigate(['/login'])
-        this.msg = err.error.text
+        this.responseToUser(err.error.text)
       },
     })
   }
 
   goToLogin() {
     this.router.navigate(['/login'])
+  }
+
+  responseToUser(message: string) {
+    if (message == "User Inserted Successfully!!") {
+      this.router.navigate(['/login'])
+    }
+    else {
+      this.msg = message;
+    }
   }
 }
