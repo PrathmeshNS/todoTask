@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
 
 <body>
-    <div class="login-card">
+    <div class="register-card">
         <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
             <div class="mb-3 w-50 container">
                 <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" placeholder="Enter Your Name" [ngClass]="{'is-invalid':f.submitted && name.errors}" autocomplete="on"  required>
@@ -33,14 +25,12 @@
             </div>
 
             <div class="container text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </div>
             <div>
-                <span class="register"> Have Account <a (click)="goToLogin()">Login Here</a></span>
+                <span class="login"> Have Account <a (click)="goToLogin()">Login Here</a></span>
             </div>
         </form>
     </div>
 
 </body>
-
-</html>

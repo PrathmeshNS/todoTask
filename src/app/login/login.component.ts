@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { User } from '../User';
 import { Task } from '../task';
+import { PredefineString } from '../predefineString';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +36,7 @@ export class LoginComponent {
           this.router.navigate(['/addTask']);
         }
         else {
-          this.msg = "User not found"
+          this.msg = PredefineString.USER_NOT_FOUND
         }
       },
       error: (err) => {

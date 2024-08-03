@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from '../User';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { PredefineString } from '../predefineString';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +38,7 @@ export class RegisterComponent {
   }
 
   responseToUser(message: string) {
-    if (message == "User Inserted Successfully!!") {
+    if (message == PredefineString.USER_INSERTED_SUCCESSFULLY) {
       this.router.navigate(['/login'])
     }
     else {
